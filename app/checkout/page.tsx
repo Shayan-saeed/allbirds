@@ -6,7 +6,6 @@ import { collection, doc, setDoc } from "firebase/firestore";
 import db from '../firebaseConfig';
 import { clearCart } from '../store/cartSlice';
 import { useRouter } from 'next/navigation';
-import Image from 'next/image'
 
 export default function CheckoutPage() {
     const cartItems = useSelector((state: RootState) => state.cart.items);
@@ -40,8 +39,8 @@ export default function CheckoutPage() {
     };
 
     return (
-        <div className="flex">
-            <div className="w-1/2 p-4">
+        <div className="flex flex-col md:flex-row">
+            <div className="w-full md:w-1/2 p-4">
                 <h2 className="text-xl font-bold mb-4">Checkout Details</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="mb-4">
@@ -62,7 +61,7 @@ export default function CheckoutPage() {
                 </form>
             </div>
 
-            <div className="w-1/2 p-4 border-l bg-gray-50">
+            <div className="w-full md:w-1/2 p-4 border-t md:border-t-0 md:border-l bg-gray-50">
                 <h2 className="text-xl font-bold mb-4">Your Cart</h2>
                 <ul>
                     {cartItems.map(item => (
@@ -72,7 +71,7 @@ export default function CheckoutPage() {
                                 <p>Price: ${item.price.toFixed(2)}</p>
                                 <p>Quantity: {item.quantity}</p>
                             </div>
-                            <Image src={item.imageUrl} alt={item.name} width={150} height={150} />
+                            <img src={item.imageUrl} alt={item.name} width={150} height={150} />
                         </li>
                     ))}
                 </ul>

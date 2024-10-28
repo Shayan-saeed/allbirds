@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { Moon, Sun } from "lucide-react"
 import { useTheme } from "next-themes"
 import { Button } from "@/components/ui/button"
-import Image from 'next/image'
+import { Badge } from "@/components/ui/badge"
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -12,15 +12,19 @@ import {
 } from "@/components/ui/dropdown-menu"
 import Cart from './Cart';
 import Link from 'next/link';
+import { useSelector } from 'react-redux';
+import { selectTotalItems } from '../app/store/cartSlice';
 
 const Header = () => {
 
     const texts = ["Our Newest Neutrals Are Here: Stony Vibes To Ground Any Look", "Our Fall Sale Is Officially On: 30% Off Select Styles For The Season", "Free Shipping On Orders Over $75. Free Returns"];
     const [currentIndex, setCurrentIndex] = useState(0);
-    const { setTheme } = useTheme()
+    const { setTheme } = useTheme();
+    const { theme } = useTheme();
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
     const [isCartOpen, setIsCartOpen] = useState(false);
+    const totalItems = useSelector(selectTotalItems);
 
     const handleCartClick = () => {
         setIsCartOpen(!isCartOpen);
@@ -44,16 +48,17 @@ const Header = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+
     return (
         <div>
-            <div className={`bg-[#a6694b] text-white font-semibold text-xs text-center py-3 w-full transition-opacity duration-300 ${isScrolled ? 'opacity-0 pointer-events-none' : 'opacity-100'} z-30 relative`}>
+            <div className={`bg-[#b09776] text-white font-semibold text-xs text-center py-3 w-full transition-opacity duration-300 ${isScrolled ? 'opacity-0 pointer-events-none' : 'opacity-100'} z-30 relative`}>
                 {texts.map((text, index) => (
                     <div key={index} className={index === currentIndex ? 'block' : 'hidden'}>
                         {text}
                     </div>
                 ))}
             </div>
-            <nav className={`w-full shadow-md backdrop-blur bg-white transition-transform duration-300 ease-in-out ${isScrolled ? 'translate-y-0 fixed top-0 z-50' : 'translate-y-0'}`}>
+            <nav className={`w-full shadow-md backdrop-blur-3xl  transition-transform duration-300 ease-in-out ${isScrolled ? 'translate-y-0 fixed top-0 z-50' : 'translate-y-0'}`}>
                 <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
                     <div className="relative flex h-16 items-center justify-between">
                         <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -82,7 +87,7 @@ const Header = () => {
                                 <Link href={{
                                     pathname: "/"
                                 }}>
-                                    <Image className="h-8 w-auto" src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Allbirds_logo.png" alt="Your Company" />
+                                    <img className="h-8 w-auto" src={theme === 'dark' ? 'https://images.squarespace-cdn.com/content/v1/657cca16d4fc2d1b4454176a/a383174c-c4ad-4a0d-8685-c8dea89b4686/Allbirds.png' : 'https://upload.wikimedia.org/wikipedia/commons/4/4b/Allbirds_logo.png'} alt="Your Company" />
                                 </Link>
                             </div>
                             <div className="hidden sm:ml-6 sm:block">
@@ -120,12 +125,13 @@ const Header = () => {
                             <button
                                 onClick={handleCartClick}
                                 type="button"
-                                className="relative rounded-full p-2 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                                className="relative flex rounded-full p-2 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                                 <span className="absolute -inset-1.5"></span>
                                 <span className="sr-only">View shopping cart</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
                                 </svg>
+                                <Badge className='rounded-full'>{totalItems}</Badge>
                             </button>
                             {isCartOpen && (
                                 <div className="cart-modal">
@@ -168,7 +174,7 @@ const Header = () => {
                     </div>
                 )}
             </nav>
-            <div className={`bg-white shadow-md transition-opacity duration-300 ${isScrolled ? 'opacity-0 pointer-events-none' : 'opacity-100'} z-40 relative mt-2`}>
+            <div className={` shadow-md transition-opacity duration-300 ${isScrolled ? 'opacity-0 pointer-events-none' : 'opacity-100'} z-40 relative mt-2`}>
                 <nav className="flex justify-center space-x-8 py-4">
                     <Link
                         className="relative text-sm hover:underline"

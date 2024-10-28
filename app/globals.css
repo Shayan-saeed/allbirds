@@ -50,7 +50,7 @@ body {
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
-  .dark {
+  /* .dark {
     --background: 240 10% 3.9%;
     --foreground: 0 0% 98%;
     --card: 240 10% 3.9%;
@@ -83,7 +83,7 @@ body {
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
-  }
+  } */
 }
 
 
@@ -98,23 +98,66 @@ body {
 
 @media (max-width: 768px) {
   .hero{
-    background-image: url('https://cdn.allbirds.com/image/upload/f_auto,q_auto,w_860/cms/7zIszlPjXlOtGRkpLr7Sm0/6501c83ebc7b58f2dd95e639685dd7b8/24Q4_OctoberPromo_Site_HomepageHero_Mobile-Img_860x1078.png');
+    background-image: url('https://cdn.allbirds.com/image/upload/f_auto,q_auto,w_860/cms/4zS2RUuvNkzhtbKCdoMxJj/6985ce946036ac03060b6e7f947748f5/24Q4_ColorFlow1_Site_HomepageHero_Mobile_860x1078_US_Blank.png');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .hero::before {
+    content: '';
+    /* position: absolute;
+    top: 0;
+    left: 0; */
+    width: 100%;
+    height: min-content;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 1;
+  }
+
+}
+
+@media (max-width: 1024px) {
+  .hero-inner{
+    justify-content: center;
+    margin-bottom: 300px;
   }
 }
 
 @media (min-width: 769px) {
   .hero{
-    background-image: url('https://cdn.allbirds.com/image/upload/f_auto,q_auto,w_860/cms/4c6jyaknDV1KWoPARQHpH8/857a1cf971637738d915ff28e25f36c9/24Q4_OctoberPromo_Site_HomepageHero_Desktop-Img_2880x1245.png');
+    background-image: url('https://cdn.allbirds.com/image/upload/f_auto,q_auto,w_2880/cms/F7x1nF5Ph1DzVxxEduf3V/1699985e7be02c57fb4753a494fbfd4c/24Q4_ColorFlow1_Site_HomepageHero_Desktop_880x1245_US_Blank.png');
+    background-size: cover;
+    background-position: center;
+    position: relative;
   }
+  
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 1;
+  }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin: 10px auto;
 }
   
 
 
-.hero{
-  background-position: center;
+.hero {
   background-repeat: no-repeat;
-  background-size: cover;
-  height: 70vh;
+  height: auto;
 }
 
 .carousel-container{

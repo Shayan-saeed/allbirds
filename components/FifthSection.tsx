@@ -1,12 +1,11 @@
 import React from 'react'
-import Image from 'next/image'
 
 const FifthSection = () => {
     return (
         <div className="fifth-section flex flex-wrap pt-12 pb-12 w-full">
             <div className="sectionItem group relative w-full md:w-1/2 overflow-hidden transition-transform duration-300 ease-in-out p-2">
                 <div className='fifthSecBackground'>
-                    <Image src={`https://cdn.allbirds.com/image/upload/f_auto,q_auto,w_1000/cms/6h3QXLL5Q7BSJalZ58YJ2c/37200a9dd056e864b378c8355cebfab2/24Q3_Tree_Breezer_Knit_Homepage_Dual-Panel_Module-1_Desktop_Mobile_2000x2000.png`} alt='section-image' className="sectionImage w-full h-auto block" />
+                    <img src={`https://cdn.allbirds.com/image/upload/f_auto,q_auto,w_1000/cms/6h3QXLL5Q7BSJalZ58YJ2c/37200a9dd056e864b378c8355cebfab2/24Q3_Tree_Breezer_Knit_Homepage_Dual-Panel_Module-1_Desktop_Mobile_2000x2000.png`} alt='section-image' className="sectionImage w-full h-auto block" />
                 </div>
                 <div className='text-white' style={{ position: "absolute", top: 0, textAlign: "center", width: "100%" }}>
                     <h1 className='text-white text-2xl font-bold mt-16'>Women's Flats</h1>

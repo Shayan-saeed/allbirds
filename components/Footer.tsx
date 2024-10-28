@@ -1,13 +1,12 @@
 import React from 'react'
 import { FaInstagram, FaXTwitter, FaFacebookF, FaYoutube, FaPinterestP } from "react-icons/fa6";
 import { SiTiktok } from "react-icons/si";
-import Image from 'next/image'
 
 const Footer = () => {
     return (
         <footer className="footer bg-base-200 text-base-content p-10">
             <aside>
-                <Image className="h-14 w-auto" src="https://images.squarespace-cdn.com/content/v1/657cca16d4fc2d1b4454176a/a383174c-c4ad-4a0d-8685-c8dea89b4686/Allbirds.png" alt="Your Company" />
+                <img className="h-14 w-auto" src="https://images.squarespace-cdn.com/content/v1/657cca16d4fc2d1b4454176a/a383174c-c4ad-4a0d-8685-c8dea89b4686/Allbirds.png" alt="Your Company" />
                 <p>
                     Follow the Flock
                     <br />

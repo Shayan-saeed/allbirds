@@ -5,7 +5,6 @@ import db from '../../firebaseConfig';
 import { Separator } from "@/components/ui/separator"
 import { Checkbox } from "@/components/ui/checkbox"
 import HeroProducts from '@/components/HeroProducts';
-import Image from 'next/image'
 import {
   Accordion,
   AccordionContent,
@@ -14,6 +13,7 @@ import {
 } from "@/components/ui/accordion"
 import OurApproach from '@/components/OurApproach';
 import Link from 'next/link';
+import { Sheet, SheetClose, SheetContent, SheetFooter, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 
 interface Shoe {
   id: string;
@@ -25,6 +25,7 @@ interface Shoe {
 export default function Page() {
 
   const [shoes, setShoes] = useState<Shoe[]>([]);
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
 
   useEffect(() => {
     const fetchShoes = async () => {
@@ -40,10 +41,14 @@ export default function Page() {
     fetchShoes();
   }, []);
 
+  const handleFiltersClick = () => {
+    setIsFilterOpen(!isFilterOpen)
+  }
+
   return (
     <div className='mt-10'>
       <div className='flex'>
-        <aside className='w-1/4 p-6 space-y-6'>
+        <aside className='w-1/4 p-6 space-y-6 hidden lg:block'>
           <h2 className='text-xl font-bold pb-3'>Men&apos;s Shoes</h2>
           <ul className='text-sm space-y-2'>
             <li className='hover:underline cursor-pointer'>Everyday Sneakers</li>
@@ -174,7 +179,10 @@ export default function Page() {
           </div>
         </aside>
         <main className='flex-1 p-2'>
-          <div className="flex justify-end pr-6">
+          <div className='lg:hidden'>
+            <h2 className='text-xl font-bold pb-6 pl-3'>Men&apos;s Shoes</h2>
+          </div>
+          <div className="flex justify-around lg:justify-end pr-6">
             <div className="inline-flex border p-1 border-gray-300 rounded-full overflow-hidden">
               <a href="/collections/womens" className="text-decoration-none">
                 <div className="inline-block px-4 py-1 bg-white rounded-full text-black text-sm font-semibold cursor-pointer">
@@ -187,8 +195,146 @@ export default function Page() {
                 </div>
               </a>
             </div>
+            <div className='border p-2 border-gray-300 rounded-full overflow-hidden lg:hidden'>
+              <button onClick={handleFiltersClick} className='flex font-bold gap-2'>
+                FILTERS
+                <div>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75" />
+                  </svg>
+                </div>
+              </button>
+              {isFilterOpen && (
+                <div className='overflow-auto '>
+                  <Sheet open={isFilterOpen} onOpenChange={setIsFilterOpen}>
+                    <SheetContent>
+                      <h2 className='text-lg font-bold pb-4'>Filter By:</h2>
+                      <Separator />
+                      <div className='mt-4 space-y-3'>
+                        <h2 className='text-md font-bold pb-2'>SIZES</h2>
+                        <p className='text-xs pb-2'>Most of our shoes only come in full sizes. If you’re a half size, select your nearest whole size too.</p>
+                        <div className='flex flex-wrap gap-2 font-sans pb-3'>
+                          {['8', '8.5', '9', '9.5', '10', '10.5', '11', '11.5', '12', '12.5', '13', '13.5', '14'].map(size => (
+                            <div key={size} className='flex items-center justify-center border border-gray-300 rounded-md text-center cursor-pointer hover:bg-gray-200' style={{ width: '40px', height: '40px' }}>
+                              {size}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                      <Separator />
+                      <div className='space-y-3 pb-4'>
+                        <h2 className='text-md font-bold pt-2'>BEST FOR</h2>
+                        <div className="grid grid-cols-2 gap-4">
+                          <div className="flex items-center space-x-2">
+                            <Checkbox id="everyday" />
+                            <label
+                              htmlFor="everyday"
+                              className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                            >
+                              Everyday
+                            </label>
+                          </div>
+                          <div className="flex items-center space-x-2">
+                            <Checkbox id="cool-weather" />
+                            <label
+                              htmlFor="cool-weather"
+                              className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                            >
+                              Cool Weather
+                            </label>
+                          </div>
+                          <div className="flex items-center space-x-2">
+                            <Checkbox id="wet-weather" />
+                            <label
+                              htmlFor="wet-weather"
+                              className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                            >
+                              Wet Weather
+                            </label>
+                          </div>
+                          <div className="flex items-center space-x-2">
+                            <Checkbox id="active" />
+                            <label
+                              htmlFor="active"
+                              className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                            >
+                              Active
+                            </label>
+                          </div>
+                          <div className="flex items-center space-x-2">
+                            <Checkbox id="warm-weather" />
+                            <label
+                              htmlFor="warm-weather"
+                              className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                            >
+                              Warm Weather
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <Separator />
+                      <div className='space-y-3 pt-2 pb-4'>
+                        <h2 className='text-md font-bold'>MATERIAL</h2>
+                        <div className="flex items-center space-x-2">
+                          <Checkbox id="wool" />
+                          <label
+                            htmlFor="wool"
+                            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                          >
+                            Soft & Cozy Wool
+                          </label>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <Checkbox id="tree" />
+                          <label
+                            htmlFor="tree"
+                            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                          >
+                            Light & Breezy Tree
+                          </label>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <Checkbox id="canvas" />
+                          <label
+                            htmlFor="canvas"
+                            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                          >
+                            Lightweight & Durable Canvas
+                          </label>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <Checkbox id="cotton-blend" />
+                          <label
+                            htmlFor="cotton-blend"
+                            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                          >
+                            Cozy & Durable Cotton Blend
+                          </label>
+                        </div>
+                      </div>
+                      <Separator />
+                      <div className='space-y-3 pt-2'>
+                        <h2 className='text-md font-bold'>HUE</h2>
+                        <ul className='grid grid-cols-3 gap-y-2'>
+                          <li><span className="inline-block w-5 h-5 bg-black rounded-full"></span> Black</li>
+                          <li><span className="inline-block w-5 h-5 bg-gray-500 rounded-full"></span> Grey</li>
+                          <li><span className="inline-block w-5 h-5 bg-[#F5F5DC] rounded-full"></span> Beige</li>
+                          <li><span className="inline-block w-5 h-5 bg-blue-500 rounded-full"></span> Blue</li>
+                          <li><span className="inline-block w-5 h-5 bg-red-500 rounded-full"></span> Red</li>
+                          <li><span className="inline-block w-5 h-5 bg-green-500 rounded-full"></span> Green</li>
+                          <li><span className="inline-block w-5 h-5 bg-white rounded-full border border-grey-200"></span> White</li>
+                          <li><span className="inline-block w-5 h-5 bg-purple-500 rounded-full"></span> Purple</li>
+                          <li><span className="inline-block w-5 h-5 bg-yellow-500 rounded-full"></span> Yellow</li>
+                          <li><span className="inline-block w-5 h-5 bg-[#964B00] rounded-full"></span> Brown</li>
+                        </ul>
+                      </div>
+                    </SheetContent>
+                  </Sheet>
+                </div>
+              )}
+            </div>
           </div>
-          <div className="grid grid-cols-3 gap-5">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-5">
             {shoes.map(shoe => (
               <Link
                 key={shoe.id}
@@ -202,7 +348,7 @@ export default function Page() {
                 }}
               >
                 <div>
-                  <Image src={shoe.imageUrl} alt={shoe.name} className="w-full" />
+                  <img src={shoe.imageUrl} alt={shoe.name} className="w-full" />
                   <h3 className="font-bold">{shoe.name}</h3>
                   <p>${shoe.price}</p>
                 </div>
@@ -212,47 +358,47 @@ export default function Page() {
         </main>
       </div>
       <HeroProducts />
-      <div className="flex bg-gray-100">
-        <div className="w-1/4">
-          <h1 className='text-4xl font-bold p-7 pt-28'>Explore More Men&apos;s Shoes</h1>
+      <div className="flex flex-col md:flex-row bg-gray-100">
+        <div className="w-full md:w-1/4">
+          <h1 className='text-2xl md:text-4xl font-bold p-4 md:p-7 pt-10 md:pt-28'>Explore More Men&apos;s Shoes</h1>
         </div>
-        <div className="w-3/4 p-4">
-          <div className="grid grid-cols-3 gap-4">
+        <div className="w-full md:w-3/4 p-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             <div className="card bg-white rounded-none">
-              <Image src="https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_600,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/breadcrumbNavigationNode/en-US/images/4VgbiZp42NWWF7swBOBnoS/1" alt="Shoe 1" />
+              <img src="https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_600,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/breadcrumbNavigationNode/en-US/images/4VgbiZp42NWWF7swBOBnoS/1" alt="Shoe 1" />
               <h2 className='text-sm p-4 font-bold'>Everyday Sneakers</h2>
             </div>
             <div className="card bg-white rounded-none">
-              <Image src="https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_600,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/breadcrumbNavigationNode/en-US/images/6uFLbJ71n1lLaaQhPFEZ6D/4" alt="Shoe 2" />
+              <img src="https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_600,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/breadcrumbNavigationNode/en-US/images/6uFLbJ71n1lLaaQhPFEZ6D/4" alt="Shoe 2" />
               <h2 className='text-sm p-4 font-bold'>Active Shoes</h2>
             </div>
             <div className="card bg-white rounded-none">
-              <Image src="https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_600,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/breadcrumbNavigationNode/en-US/images/2kEfCf93lGt9q957ky14rc/2" alt="Shoe 3" />
+              <img src="https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_600,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/breadcrumbNavigationNode/en-US/images/2kEfCf93lGt9q957ky14rc/2" alt="Shoe 3" />
               <h2 className='text-sm p-4 font-bold'>Water-Repellent Shoes</h2>
             </div>
           </div>
-          <div className="grid grid-cols-3 gap-4 mt-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-4">
             <div className="card bg-white rounded-none">
-              <Image src="https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_600,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/breadcrumbNavigationNode/en-US/images/39zrLFPePhQXwoap88lAnc/1" alt="Shoe 4" />
+              <img src="https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_600,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/breadcrumbNavigationNode/en-US/images/39zrLFPePhQXwoap88lAnc/1" alt="Shoe 4" />
               <h2 className='text-sm p-4 font-bold'>Slip-Ons</h2>
             </div>
             <div className="card bg-white rounded-none">
-              <Image src="https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_600,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/breadcrumbNavigationNode/en-US/images/7zQGhDDbBE8CiAkk9jucxb/2" alt="Shoe 5" />
+              <img src="https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_600,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/breadcrumbNavigationNode/en-US/images/7zQGhDDbBE8CiAkk9jucxb/2" alt="Shoe 5" />
               <h2 className='text-sm p-4 font-bold'>Hiking Shoes</h2>
             </div>
             <div className="card bg-white rounded-none">
-              <Image src="https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_600,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/breadcrumbNavigationNode/en-US/images/4XkWseoM4kmcHIhBhLp1Hn/1" alt="Shoe 6" />
+              <img src="https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_600,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/breadcrumbNavigationNode/en-US/images/4XkWseoM4kmcHIhBhLp1Hn/1" alt="Shoe 6" />
               <h2 className='text-sm p-4 font-bold'>Sale Shoes</h2>
             </div>
           </div>
         </div>
       </div>
-      <div className="p-16">
+      <div className="p-8 lg:p-16">
         <h1 className="text-3xl font-bold mb-6">Men&apos;s Shoes</h1>
         <p className="mb-6">
           Find your perfect blend of style and comfort with our collection of men’s shoes for any occasion. From business casual days to meeting up with friends after work to taking on your favorite trail, our men’s shoes provide the ultimate in sustainable support for every step of your day—and look incredible while doing so.
         </p>
-        <Accordion type="single" collapsible className="w-full p-10">
+        <Accordion type="single" collapsible className="w-full p-2 lg:p-10">
           <AccordionItem value="item-1" className='py-6'>
             <AccordionTrigger className="py-2 text-lg font-semibold">DO ALLBIRDS RUN TRUE TO SIZE?</AccordionTrigger>
             <AccordionContent className="px-4 py-2">Yes, Allbirds shoes run true to size. If you’re looking at any of our shoes that come only in whole sizes and you’re in between, just know that Allbirds whole sizes fit true to size for most customers. If you have wide feet or are between sizes, we suggest you size up for all whole-size styles.<br />
