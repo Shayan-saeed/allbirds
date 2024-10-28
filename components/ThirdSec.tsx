@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image'
 
 const ThirdSec = () => {
   return (
@@ -13,7 +14,7 @@ const ThirdSec = () => {
       <div className='flex flex-col items-center justify-center text-white'>
         <h1 className='text-center text-2xl font-bold pb-6'>WE MAKE BETTER THINGS IN A BETTER WAY</h1>
         <p className='text-center font-semibold pb-4'>By looking to the world’s greatest innovator—Nature—we create shoes that deliver <br /> unrivaled comfort that you feel good in and feel good about.</p>
-        <img className="h-14 w-auto" src="https://images.squarespace-cdn.com/content/v1/657cca16d4fc2d1b4454176a/a383174c-c4ad-4a0d-8685-c8dea89b4686/Allbirds.png" alt="Your Company" />   
+        <Image className="h-14 w-auto" src="https://images.squarespace-cdn.com/content/v1/657cca16d4fc2d1b4454176a/a383174c-c4ad-4a0d-8685-c8dea89b4686/Allbirds.png" alt="Your Company" />   
       </div>
     </div>
   );

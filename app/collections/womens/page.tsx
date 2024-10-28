@@ -5,6 +5,7 @@ import db from '../../firebaseConfig';
 import { Separator } from "@/components/ui/separator"
 import { Checkbox } from "@/components/ui/checkbox"
 import HeroProducts from '@/components/HeroProducts';
+import Image from 'next/image'
 import {
   Accordion,
   AccordionContent,
@@ -43,7 +44,7 @@ export default function page() {
     <div className='mt-10'>
       <div className='flex'>
         <aside className='w-1/4 p-6 space-y-6'>
-          <h2 className='text-xl font-bold pb-3'>Women's Shoes</h2>
+          <h2 className='text-xl font-bold pb-3'>Women&apos;s Shoes</h2>
           <ul className='text-sm space-y-2'>
             <li className='hover:underline cursor-pointer'>Everyday Sneakers</li>
             <li className='hover:underline cursor-pointer'>Active Shoes</li>
@@ -202,7 +203,7 @@ export default function page() {
                 }}
               >
                 <div>
-                  <img src={shoe.imageUrl} alt={shoe.name} className="w-full" />
+                  <Image src={shoe.imageUrl} alt={shoe.name} className="w-full" />
                   <h3 className="font-bold">{shoe.name}</h3>
                   <p>${shoe.price}</p>
                 </div>
@@ -214,41 +215,41 @@ export default function page() {
       <HeroProducts />
       <div className="flex bg-gray-100">
         <div className="w-1/4">
-          <h1 className='text-4xl font-bold p-7 pt-28'>Explore More Women's Shoes</h1>
+          <h1 className='text-4xl font-bold p-7 pt-28'>Explore More Women&apos;s Shoes</h1>
         </div>
         <div className="w-3/4 p-4">
           <div className="grid grid-cols-3 gap-4">
             <div className="card bg-white rounded-none">
-              <img src="https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_600,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/breadcrumbNavigationNode/en-US/images/yUlh0nysxCxmrv3SzK6PZ/4" alt="Shoe 1" />
+              <Image src="https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_600,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/breadcrumbNavigationNode/en-US/images/yUlh0nysxCxmrv3SzK6PZ/4" alt="Shoe 1" />
               <h2 className='text-sm p-4 font-bold'>Everyday Sneakers</h2>
             </div>
             <div className="card bg-white rounded-none">
-              <img src="https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_600,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/breadcrumbNavigationNode/en-US/images/6eYhnQlZ944sUTllcUVHD3/2" alt="Shoe 2" />
+              <Image src="https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_600,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/breadcrumbNavigationNode/en-US/images/6eYhnQlZ944sUTllcUVHD3/2" alt="Shoe 2" />
               <h2 className='text-sm p-4 font-bold'>Active Shoes</h2>
             </div>
             <div className="card bg-white rounded-none">
-              <img src="https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_600,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/breadcrumbNavigationNode/en-US/images/2kEfCf93lGt9q957ky14rc/2" alt="Shoe 3" />
+              <Image src="https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_600,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/breadcrumbNavigationNode/en-US/images/2kEfCf93lGt9q957ky14rc/2" alt="Shoe 3" />
               <h2 className='text-sm p-4 font-bold'>Water-Repellent Shoes</h2>
             </div>
           </div>
           <div className="grid grid-cols-3 gap-4 mt-4">
             <div className="card bg-white rounded-none">
-              <img src="https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_600,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/breadcrumbNavigationNode/en-US/images/37RhAHzyDMH4udsfQhL8uu/1" alt="Shoe 4" />
+              <Image src="https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_600,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/breadcrumbNavigationNode/en-US/images/37RhAHzyDMH4udsfQhL8uu/1" alt="Shoe 4" />
               <h2 className='text-sm p-4 font-bold'>Slip-Ons</h2>
             </div>
             <div className="card bg-white rounded-none">
-              <img src="https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_600,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/breadcrumbNavigationNode/en-US/images/4n5RIXmMc5H0axffEeZhhq/1" alt="Shoe 5" />
+              <Image src="https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_600,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/breadcrumbNavigationNode/en-US/images/4n5RIXmMc5H0axffEeZhhq/1" alt="Shoe 5" />
               <h2 className='text-sm p-4 font-bold'>Hiking Shoes</h2>
             </div>
             <div className="card bg-white rounded-none">
-              <img src="https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_600,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/breadcrumbNavigationNode/en-US/images/5Jw8dhEIPYOX2rHLSYPUdQ/1" alt="Shoe 6" />
+              <Image src="https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_600,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/breadcrumbNavigationNode/en-US/images/5Jw8dhEIPYOX2rHLSYPUdQ/1" alt="Shoe 6" />
               <h2 className='text-sm p-4 font-bold'>Sale Shoes</h2>
             </div>
           </div>
         </div>
       </div>
       <div className="p-16">
-        <h1 className="text-3xl font-bold mb-6">Women's Shoes</h1>
+        <h1 className="text-3xl font-bold mb-6">Women&apos;s Shoes</h1>
         <p className="mb-6">
           Explore the sustainable fusion of style and all-day comfort with our women’s shoes collection. Whether you need some new flats for the office or a brisk pair of active shoes to log some miles in, we’ve got your perfect pair—but it’s up to you to pick them out.
         </p>
@@ -276,7 +277,7 @@ export default function page() {
             <AccordionContent className="px-4 py-2">
               Yes! Allbirds shoes are crafted to provide unrivaled comfort throughout the day. Our daily wear favorites, including the Wool Mizzles, Tree Dashers, and Wool Pipers, utilize sustainable and ethically-sourced materials like our soft ZQ Merino wool, springy SweetFoam® sugarcane midsoles, and plush, odor-minimizing castor bean oil insoles. <br />
               Together, these elements result in a shoe that is lightweight, breathable, flexible, and extraordinarily comfortable. <br />
-              Strut in your Allbirds with a spring in your step, whether you're heading to work, running errands, traveling, or anything else on your agenda.
+              Strut in your Allbirds with a spring in your step, whether you&apos;re heading to work, running errands, traveling, or anything else on your agenda.
             </AccordionContent>
           </AccordionItem>
         </Accordion>

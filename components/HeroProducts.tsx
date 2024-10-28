@@ -6,6 +6,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel"
+import Image from 'next/image'
 
 const HeroProducts = () => {
   const products = [
@@ -68,7 +69,7 @@ const HeroProducts = () => {
           {products.map((product, index) => (
             <CarouselItem className='basis-full md:basis-1/4 ' key={index}>
               <div className="p-1" style={{ width: "300px", height: "400px" }}>
-                <img src={product.image} alt={product.heading} width={300} height={200} className='bg-gray-100' />
+                <Image src={product.image} alt={product.heading} width={300} height={200} className='bg-gray-100' />
                 <h2 className='font-bold pt-2'>{product.heading}</h2>
                 <h3>{product.subheading}</h3>
                 <p>{product.price}</p>

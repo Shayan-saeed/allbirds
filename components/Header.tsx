@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { Moon, Sun } from "lucide-react"
 import { useTheme } from "next-themes"
 import { Button } from "@/components/ui/button"
+import Image from 'next/image'
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -81,7 +82,7 @@ const Header = () => {
                                 <Link href={{
                                     pathname: "/"
                                 }}>
-                                    <img className="h-8 w-auto" src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Allbirds_logo.png" alt="Your Company" />
+                                    <Image className="h-8 w-auto" src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Allbirds_logo.png" alt="Your Company" />
                                 </Link>
                             </div>
                             <div className="hidden sm:ml-6 sm:block">

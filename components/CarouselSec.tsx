@@ -1,5 +1,6 @@
 'use client'
 import React, { useState } from 'react';
+import Image from 'next/image'
 
 const CarouselSec = () => {
 
@@ -48,14 +49,14 @@ const CarouselSec = () => {
                 </button>
                 <div className='pr-2 relative w-full md:w-1/2'>
                     <div className="image-container" style={{ position: 'relative' }}>
-                        <img src={images[currentIndex]} alt={`Slide ${currentIndex + 1}`} className="w-full h-auto" />
+                        <Image src={images[currentIndex]} alt={`Slide ${currentIndex + 1}`} className="w-full h-auto" />
                         <div className="overlay" style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: 'black', opacity: 0.1 }}></div>
                     </div>
                     <h2 className="text-white text-2xl font-bold absolute inset-0 flex items-center justify-center" style={{ zIndex: 1 }}>{currentIndex === 0 ? "Men's Season-Ready Styles" : currentIndex === 2 ? "Men's Sporty Styles" : currentIndex === 4 ? "Men's Lightweight Styles" : null}</h2>
                 </div>
                 <div className='pr-2 relative w-full md:w-1/2'>
                     <div className="image-container" style={{ position: 'relative' }}>
-                        <img src={images[(currentIndex + 1) % images.length]} className="w-full h-auto" alt={`Slide ${currentIndex + 2}`} />
+                        <Image src={images[(currentIndex + 1) % images.length]} className="w-full h-auto" alt={`Slide ${currentIndex + 2}`} />
                         <div className="overlay" style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: 'black', opacity: 0.1 }}></div>
                     </div>
                     <h2 className="text-white text-2xl font-bold absolute inset-0 flex items-center justify-center" style={{ zIndex: 1 }}>{currentIndex === 0 ? "Women's Fall Essentials" : currentIndex === 2 ? "Women's Athleisure Styles" : currentIndex === 4 ? "Women's Packable Shoes" : null}</h2>

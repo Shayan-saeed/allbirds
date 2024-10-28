@@ -5,6 +5,7 @@ import { removeFromCart } from '../app/store/cartSlice';
 import { Sheet, SheetClose, SheetContent, SheetFooter, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 import { Separator } from './ui/separator';
 import Link from 'next/link';
+import Image from 'next/image'
 
 
 interface CartState {
@@ -37,7 +38,7 @@ export default function Cart({ open, onOpenChange }: CartState) {
                                 {cartItems.map(item => (
                                     <li key={item.id} className="flex items-center justify-between gap-4 mb-4">
                                         <div className="flex items-center gap-4">
-                                            <img src={item.imageUrl} alt={item.name} width={80} height={80} />
+                                            <Image src={item.imageUrl} alt={item.name} width={80} height={80} />
                                             <div>
                                                 <h3 className="font-bold">{item.name}</h3>
                                                 <p>Price: ${item.price.toFixed(2)}</p>

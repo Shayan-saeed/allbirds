@@ -1,5 +1,4 @@
 'use client'
-import { useEffect } from 'react';
 import CarouselSec from "@/components/CarouselSec";
 import FifthSection from "@/components/FifthSection";
 import Hero from "@/components/Hero";
@@ -8,7 +7,6 @@ import OurApproach from "@/components/OurApproach";
 import RegisterEmailSection from "@/components/RegisterEmailSection";
 import SecSection from "@/components/SecSection";
 import ThirdSec from "@/components/ThirdSec";
-import SaveProductsToFirebase from './SaveProductsToFirebase'
 
 export default function Home() {
   // useEffect(() => {
