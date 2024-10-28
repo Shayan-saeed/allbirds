@@ -97,8 +97,8 @@ export default function page() {
                         <div className="relative mt-5">
                             <img src="https://cdn.allbirds.com/image/upload/f_auto,q_auto,w_2020/cms/6o5KOeXtFcjeNml7kfLXCT/b2e133c3a37f8bd1dd4b87f9cf8a96ff/24Q4_OctoberPromo_Site_ParentCollection_Banner_Desktop_2020x312.png" alt="sale-banner" className="w-full" style={{ filter: "brightness(0.7)" }} />
                             <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white ">
-                                <h1 className="text-lg font-bold">Our Fall Sale Is Officially On</h1>
-                                <p className="mt-2 text-sm">Shop our Fall Sale with deals on shoes primed for crisp days and cool nights..</p>
+                                <h1 className="text-sm md:text-lg font-bold">Our Fall Sale Is Officially On</h1>
+                                <p className="mt-2 text-sm hidden md:block">Shop our Fall Sale with deals on shoes primed for crisp days and cool nights..</p>
                             </div>
                         </div>
                         <div className='text-center text-xs mt-5 pb-3'>

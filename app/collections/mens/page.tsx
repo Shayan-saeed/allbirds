@@ -205,12 +205,12 @@ export default function Page() {
                 </div>
               </button>
               {isFilterOpen && (
-                <div className='overflow-auto '>
+                <div>
                   <Sheet open={isFilterOpen} onOpenChange={setIsFilterOpen}>
-                    <SheetContent>
+                    <SheetContent className='overflow-y-auto'>
                       <h2 className='text-lg font-bold pb-4'>Filter By:</h2>
                       <Separator />
-                      <div className='mt-4 space-y-3'>
+                      <div className='mt-4 space-y-3 overflow-auto'>
                         <h2 className='text-md font-bold pb-2'>SIZES</h2>
                         <p className='text-xs pb-2'>Most of our shoes only come in full sizes. If you’re a half size, select your nearest whole size too.</p>
                         <div className='flex flex-wrap gap-2 font-sans pb-3'>
