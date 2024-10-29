@@ -107,13 +107,19 @@ const Header = () => {
                                     <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
                                 </svg>
                             </button>
-                            <button type="button" className="relative hidden sm:block rounded-full p-2 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-                                <span className="absolute -inset-1.5"></span>
-                                <span className="sr-only">View user profile</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
-                                </svg>
-                            </button>
+                            <Link
+                                href={{
+                                    pathname: "/account"
+                                }}
+                            >
+                                <button type="button" className="relative hidden sm:block rounded-full p-2 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                                    <span className="absolute -inset-1.5"></span>
+                                    <span className="sr-only">View user profile</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                                    </svg>
+                                </button>
+                            </Link>
                             <Link
                                 href={{
                                     pathname: "/help"
@@ -177,7 +183,7 @@ const Header = () => {
                             <Link href="/" className="block rounded-md px-3 py-2 text-base font-medium hover:bg-gray-700 hover:text-white">Socks</Link>
                             <Link href="/" className="block rounded-md px-3 py-2 text-base font-medium hover:bg-gray-700 hover:text-white">Sale</Link>
                             <Link href="/" className="block rounded-md px-3 py-2 text-base font-medium hover:bg-gray-700 hover:text-white">Search</Link>
-                            <Link href="/" className="block rounded-md px-3 py-2 text-base font-medium hover:bg-gray-700 hover:text-white">Profile</Link>
+                            <Link href="/account" className="block rounded-md px-3 py-2 text-base font-medium hover:bg-gray-700 hover:text-white">Profile</Link>
                             <Link href="/help" className="block rounded-md px-3 py-2 text-base font-medium hover:bg-gray-700 hover:text-white">Help</Link>
                         </div>
                     </div>

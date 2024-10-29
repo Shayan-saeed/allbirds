@@ -22,10 +22,18 @@ interface Shoe {
   price: number;
 }
 
-export default function Page() {
+export default function page() {
 
   const [shoes, setShoes] = useState<Shoe[]>([]);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
+
+  // const shoesCollection = collection(db, 'collections', 'mens', 'shoes');
+  // const shoesSnapshot = await getDocs(shoesCollection);
+  // const shoesList = shoesSnapshot.docs.map(doc => ({
+  //       id: doc.id,
+  //       ...doc.data()
+  //     })) as Shoe[];
+  //     setShoes(shoesList);
 
   useEffect(() => {
     const fetchShoes = async () => {
@@ -165,16 +173,16 @@ export default function Page() {
           <div className='space-y-3'>
             <h2 className='text-md font-bold'>HUE</h2>
             <ul className='space-y-2'>
-              <li><span className="inline-block w-5 h-5 bg-black rounded-full"></span> Black</li>
-              <li><span className="inline-block w-5 h-5 bg-gray-500 rounded-full"></span> Grey</li>
-              <li><span className="inline-block w-5 h-5 bg-[#F5F5DC] rounded-full"></span> Beige</li>
-              <li><span className="inline-block w-5 h-5 bg-blue-500 rounded-full"></span> Blue</li>
-              <li><span className="inline-block w-5 h-5 bg-red-500 rounded-full"></span> Red</li>
-              <li><span className="inline-block w-5 h-5 bg-green-500 rounded-full"></span> Green</li>
-              <li><span className="inline-block w-5 h-5 bg-white rounded-full border border-grey-200"></span> White</li>
-              <li><span className="inline-block w-5 h-5 bg-purple-500 rounded-full"></span> Purple</li>
-              <li><span className="inline-block w-5 h-5 bg-yellow-500 rounded-full"></span> Yellow</li>
-              <li><span className="inline-block w-5 h-5 bg-[#964B00] rounded-full"></span> Brown</li>
+              <li className='flex items-center gap-2'><span className="inline-block w-5 h-5 bg-black rounded-full"></span> Black</li>
+              <li className='flex items-center gap-2'><span className="inline-block w-5 h-5 bg-gray-500 rounded-full"></span> Grey</li>
+              <li className='flex items-center gap-2'><span className="inline-block w-5 h-5 bg-[#F5F5DC] rounded-full"></span> Beige</li>
+              <li className='flex items-center gap-2'><span className="inline-block w-5 h-5 bg-blue-500 rounded-full"></span> Blue</li>
+              <li className='flex items-center gap-2'><span className="inline-block w-5 h-5 bg-red-500 rounded-full"></span> Red</li>
+              <li className='flex items-center gap-2'><span className="inline-block w-5 h-5 bg-green-500 rounded-full"></span> Green</li>
+              <li className='flex items-center gap-2'><span className="inline-block w-5 h-5 bg-white rounded-full border border-grey-200"></span> White</li>
+              <li className='flex items-center gap-2'><span className="inline-block w-5 h-5 bg-purple-500 rounded-full"></span> Purple</li>
+              <li className='flex items-center gap-2'><span className="inline-block w-5 h-5 bg-yellow-500 rounded-full"></span> Yellow</li>
+              <li className='flex items-center gap-2'><span className="inline-block w-5 h-5 bg-[#964B00] rounded-full"></span> Brown</li>
             </ul>
           </div>
         </aside>
@@ -316,16 +324,16 @@ export default function Page() {
                       <div className='space-y-3 pt-2'>
                         <h2 className='text-md font-bold'>HUE</h2>
                         <ul className='grid grid-cols-3 gap-y-2'>
-                          <li><span className="inline-block w-5 h-5 bg-black rounded-full"></span> Black</li>
-                          <li><span className="inline-block w-5 h-5 bg-gray-500 rounded-full"></span> Grey</li>
-                          <li><span className="inline-block w-5 h-5 bg-[#F5F5DC] rounded-full"></span> Beige</li>
-                          <li><span className="inline-block w-5 h-5 bg-blue-500 rounded-full"></span> Blue</li>
-                          <li><span className="inline-block w-5 h-5 bg-red-500 rounded-full"></span> Red</li>
-                          <li><span className="inline-block w-5 h-5 bg-green-500 rounded-full"></span> Green</li>
-                          <li><span className="inline-block w-5 h-5 bg-white rounded-full border border-grey-200"></span> White</li>
-                          <li><span className="inline-block w-5 h-5 bg-purple-500 rounded-full"></span> Purple</li>
-                          <li><span className="inline-block w-5 h-5 bg-yellow-500 rounded-full"></span> Yellow</li>
-                          <li><span className="inline-block w-5 h-5 bg-[#964B00] rounded-full"></span> Brown</li>
+                          <li className='flex items-center gap-2'><span className="inline-block w-5 h-5 bg-black rounded-full"></span> Black</li>
+                          <li className='flex items-center gap-2'><span className="inline-block w-5 h-5 bg-gray-500 rounded-full"></span> Grey</li>
+                          <li className='flex items-center gap-2'><span className="inline-block w-5 h-5 bg-[#F5F5DC] rounded-full"></span> Beige</li>
+                          <li className='flex items-center gap-2'><span className="inline-block w-5 h-5 bg-blue-500 rounded-full"></span> Blue</li>
+                          <li className='flex items-center gap-2'><span className="inline-block w-5 h-5 bg-red-500 rounded-full"></span> Red</li>
+                          <li className='flex items-center gap-2'><span className="inline-block w-5 h-5 bg-green-500 rounded-full"></span> Green</li>
+                          <li className='flex items-center gap-2'><span className="inline-block w-5 h-5 bg-white rounded-full border border-grey-200"></span> White</li>
+                          <li className='flex items-center gap-2'><span className="inline-block w-5 h-5 bg-purple-500 rounded-full"></span> Purple</li>
+                          <li className='flex items-center gap-2'><span className="inline-block w-5 h-5 bg-yellow-500 rounded-full"></span> Yellow</li>
+                          <li className='flex items-center gap-2'><span className="inline-block w-5 h-5 bg-[#964B00] rounded-full"></span> Brown</li>
                         </ul>
                       </div>
                     </SheetContent>
@@ -431,3 +439,4 @@ export default function Page() {
     </div>
   );
 }
+

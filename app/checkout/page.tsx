@@ -59,7 +59,16 @@ export default function CheckoutPage() {
 
         router.push('/');
 
-        alert("Order Placed Successfully")
+        toast.success('Order placed successfully!', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            });
     };
 
     return (
