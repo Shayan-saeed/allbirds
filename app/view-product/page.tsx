@@ -33,7 +33,7 @@ export default function page() {
     const product: ProductProps = { imageUrl, name, price };
 
     const handleAddToCart = () => {
-        dispatch(addToCart({ ...product, id: new Date().toISOString(), quantity: 1 }));
+        dispatch(addToCart({ ...product, id: new Date().toISOString(), quantity: 1 , size: selectedSize }));
     };
 
     return (

@@ -7,6 +7,7 @@ interface CartItem {
   price: number;
   imageUrl: string;
   quantity: number;
+  size: string | null;
 }
 
 interface CartState {
@@ -22,7 +23,7 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addToCart: (state, action: PayloadAction<CartItem>) => {
-      const existingItem = state.items.find(item => item.name === action.payload.name);
+      const existingItem = state.items.find(item => item.name === action.payload.name && item.size === action.payload.size);
       if (existingItem) {
         existingItem.quantity += 1;
       } else {
@@ -35,11 +36,18 @@ const cartSlice = createSlice({
     clearCart: (state) => {
       state.items = [];
     },
+    updateCartItemQuantity: (state, action: PayloadAction<{ itemId: string; quantity: number }>) => {
+      const { itemId, quantity } = action.payload;
+      const item = state.items.find(item => item.id === itemId);
+      if (item) {
+          item.quantity = quantity;
+      }
+  },
   },
 });
 
 export const selectTotalItems = (state: RootState) =>
   state.cart.items.reduce((total, item) => total + item.quantity, 0);
  
-export const { addToCart, removeFromCart, clearCart } = cartSlice.actions;
+export const { addToCart, removeFromCart, clearCart, updateCartItemQuantity } = cartSlice.actions;
 export default cartSlice.reducer;

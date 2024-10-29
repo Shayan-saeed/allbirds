@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 
 const CarouselSec = () => {
@@ -33,6 +33,10 @@ const CarouselSec = () => {
         setSelectedButton(index)
         setCurrentIndex(index);
     };
+
+    useEffect(()=> {
+        setSelectedButton(0);
+    },[])
 
     return (
         <div className='p-10'>

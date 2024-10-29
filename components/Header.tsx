@@ -114,14 +114,20 @@ const Header = () => {
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
                                 </svg>
                             </button>
-                            <button type="button" className="relative hidden sm:block rounded-full p-2 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-                                <span className="absolute -inset-1.5"></span>
-                                <span className="sr-only">Help</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
-                                </svg>
+                            <Link
+                                href={{
+                                    pathname: "/help"
+                                }}
+                            >
+                                <button type="button" className="relative hidden sm:block rounded-full p-2 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                                    <span className="absolute -inset-1.5"></span>
+                                    <span className="sr-only">Help</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="size-6">
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+                                    </svg>
+                                </button>
+                            </Link>
 
-                            </button>
                             <button
                                 onClick={handleCartClick}
                                 type="button"
@@ -166,10 +172,13 @@ const Header = () => {
                 {mobileMenuOpen && (
                     <div className="sm:hidden" id="mobile-menu">
                         <div className="space-y-1 px-2 pb-3 pt-2">
-                            <Link href="/collections/mens" className="block rounded-md px-3 py-2 text-base font-medium" aria-current="page">Men</Link>
+                            <Link href="/collections/mens" className="block rounded-md px-3 py-2 text-base font-medium hover:bg-gray-700 hover:text-white" aria-current="page">Men</Link>
                             <Link href="/collections/womens" className="block rounded-md px-3 py-2 text-base font-medium hover:bg-gray-700 hover:text-white">Women</Link>
                             <Link href="/" className="block rounded-md px-3 py-2 text-base font-medium hover:bg-gray-700 hover:text-white">Socks</Link>
                             <Link href="/" className="block rounded-md px-3 py-2 text-base font-medium hover:bg-gray-700 hover:text-white">Sale</Link>
+                            <Link href="/" className="block rounded-md px-3 py-2 text-base font-medium hover:bg-gray-700 hover:text-white">Search</Link>
+                            <Link href="/" className="block rounded-md px-3 py-2 text-base font-medium hover:bg-gray-700 hover:text-white">Profile</Link>
+                            <Link href="/help" className="block rounded-md px-3 py-2 text-base font-medium hover:bg-gray-700 hover:text-white">Help</Link>
                         </div>
                     </div>
                 )}
@@ -200,7 +209,7 @@ const Header = () => {
                     >
                         New Arrivals
                     </Link>
-                
+
                 </nav>
             </div>
         </div>
