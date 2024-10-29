@@ -69,19 +69,19 @@ export default function CheckoutPage() {
                 <form onSubmit={handleSubmit}>
                     <div className="mb-4">
                         <label className="block mb-2">Name</label>
-                        <input type="text" required className="w-full p-2 border" value={name} onChange={(e) => setName(e.target.value)} />
+                        <input type="text" required className="w-full p-2 border bg-white text-black" value={name} onChange={(e) => setName(e.target.value)} />
                     </div>
                     <div className="mb-4">
                         <label className="block mb-2">Email</label>
-                        <input type="email" required className="w-full p-2 border" value={email} onChange={(e) => setEmail(e.target.value)} />
+                        <input type="email" required className="w-full p-2 border bg-white text-black" value={email} onChange={(e) => setEmail(e.target.value)} />
                     </div>
                     <div className="mb-4">
                         <label className="block mb-2">Address</label>
-                        <input type="text" required className="w-full p-2 border" value={address} onChange={(e) => setAddress(e.target.value)} />
+                        <input type="text" required className="w-full p-2 border bg-white text-black" value={address} onChange={(e) => setAddress(e.target.value)} />
                     </div>
                     <div className="mb-4">
                         <label className="block mb-2">Phone number</label>
-                        <input type="tel" required className="w-full p-2 border" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} />
+                        <input type="tel" required className="w-full p-2 border bg-white text-black" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} />
                     </div>
                     <button type="submit" className="w-full font-bold bg-black text-white hover:text-black hover:bg-white hover:border-2 hover:border-black transition p-2 mt-4">
                         Place Order
