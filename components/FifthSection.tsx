@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 
 const FifthSection = () => {
     return (
@@ -12,7 +13,9 @@ const FifthSection = () => {
                     <p>Soft Feel, Sophisticated Style</p>
                 </div>
                 <div className="overlayFifth opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute inset-0 flex justify-center items-end flex-row ease-in pb-12">
-                    <button className="shop-button-men bg-white text-gray-800 border-none px-5 py-2 mx-1.5 cursor-pointer text-sm font-bold transition-colors duration-300 ease-in-out hover:bg-[#333] hover:text-white">Shop Tree Breezers</button>
+                    <Link href='/collections/new-arrivals'>
+                        <button className="shop-button-men bg-white text-gray-800 border-none px-5 py-2 mx-1.5 cursor-pointer text-sm font-bold transition-colors duration-300 ease-in-out hover:bg-[#333] hover:text-white">Shop Tree Breezers</button>
+                    </Link>
                 </div>
             </div>
             <div className="sectionItem group relative w-full md:w-1/2 overflow-hidden transition-transform duration-300 ease-in-out p-2">
@@ -24,8 +27,12 @@ const FifthSection = () => {
                     <p>Shop The Coziest Sneaks Ever</p>
                 </div>
                 <div className="overlayFifth group-hover:opacity-100 absolute inset-0 opacity-0 flex justify-center items-end flex-row transition-opacity duration-300 ease-in pb-12">
-                    <button className="shop-button-men bg-white text-gray-800 border-none px-4 py-2.5 mx-1.5 cursor-pointer text-sm font-bold transition-colors duration-300 ease-in-out hover:bg-[#333] hover:text-white">Shop Men</button>
-                    <button className="shop-button-women bg-white text-gray-800 border-none px-5 py-2 mx-1.5 cursor-pointer text-sm font-bold transition-colors duration-300 ease-in-out hover:bg-[#333] hover:text-white">Shop Women</button>
+                    <Link href='/collections/mens'>
+                        <button className="shop-button-men bg-white text-gray-800 border-none px-4 py-2.5 mx-1.5 cursor-pointer text-sm font-bold transition-colors duration-300 ease-in-out hover:bg-[#333] hover:text-white">Shop Men</button>
+                    </Link>
+                    <Link href='/collections/womens'>
+                        <button className="shop-button-women bg-white text-gray-800 border-none px-5 py-2 mx-1.5 cursor-pointer text-sm font-bold transition-colors duration-300 ease-in-out hover:bg-[#333] hover:text-white">Shop Women</button>
+                    </Link>
                 </div>
             </div>
         </div>

@@ -57,8 +57,6 @@ export default function CheckoutPage() {
 
         dispatch(clearCart());
 
-        router.push('/');
-
         toast.success('Order placed successfully!', {
             position: "top-right",
             autoClose: 5000,
