@@ -1,74 +1,65 @@
-import React from 'react';
+'use client'
+import React, { useState, useEffect } from 'react';
+import { collection, getDocs } from 'firebase/firestore';
+import db from '../../firebaseConfig';
+import Link from 'next/link';
+
+interface Product {
+  id: string;
+  imageUrl: string;
+  name: string;
+  price: number;
+}
 
 export default function NewArrivalsPage() {
+
+  const [products, setProducts] = useState<Product[]>([]);
+
+  useEffect(() => {
+    const fetchNewArrivals = async () => {
+      const mensCollectionRef = collection(db, 'collections', 'mens', 'shoes');
+      const womensCollectionRef = collection(db, 'collections', 'womens', 'shoes');
+
+      const [mensSnapshot, womensSnapshot] = await Promise.all([
+        getDocs(mensCollectionRef),
+        getDocs(womensCollectionRef),
+      ]);
+
+      const mensProducts = mensSnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })) as Product[];
+      const womensProducts = womensSnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })) as Product[];
+
+      const combinedProducts = [...mensProducts.slice(0, 4), ...womensProducts.slice(0, 4)];
+      setProducts(combinedProducts);
+    };
+
+    fetchNewArrivals();
+  }, []);
+
   return (
     <div className="min-h-screen bg-gray-100 p-8">
       <h1 className="text-4xl font-bold text-center mb-8">New Arrivals</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        <div className="bg-white rounded-lg shadow-md overflow-hidden">
-          <img src="https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_800,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/colorway/en-US/images/257MrVODI72TTS6J4741dG/1" alt="Shoe" className="w-full h-48 object-cover" />
-          <div className="p-4">
-            <h2 className="text-xl font-semibold">Men's Wool Go - Fluff</h2>
-            <p className="text-gray-600">$120</p>
-            <button className="mt-4 w-full bg-black text-white py-2 rounded hover:bg-white hover:border-2 hover:border-black hover:text-black hover:font-bold">Add to Cart</button>
-          </div>
-        </div>
-        <div className="bg-white rounded-lg shadow-md overflow-hidden">
-          <img src="https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_800,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/colorway/en-US/images/5fcbInUl23EgqveEIlu38t/1" alt="Shoe" className="w-full h-48 object-cover" />
-          <div className="p-4">
-            <h2 className="text-xl font-semibold">Men's Wool Runner Go</h2>
-            <p className="text-gray-600">$110</p>
-            <button className="mt-4 w-full bg-black text-white py-2 rounded hover:bg-white hover:border-2 hover:border-black hover:text-black hover:font-bold">Add to Cart</button>
-          </div>
-        </div>
-        <div className="bg-white rounded-lg shadow-md overflow-hidden">
-          <img src="https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_800,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/colorway/en-US/images/2QIrSstHBeeXkwkuPxrG0x/1" alt="Shoe" className="w-full h-48 object-cover" />
-          <div className="p-4">
-            <h2 className="text-xl font-semibold">Men's Tree Dasher 2</h2>
-            <p className="text-gray-600">$155</p>
-            <button className="mt-4 w-full bg-black text-white py-2 rounded hover:bg-white hover:border-2 hover:border-black hover:text-black hover:font-bold">Add to Cart</button>
-          </div>
-        </div>
-        <div className="bg-white rounded-lg shadow-md overflow-hidden">
-          <img src="https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_800,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/colorway/en-US/images/31hAgckpYX3elISwqPhI7C/1" alt="Shoe" className="w-full h-48 object-cover" />
-          <div className="p-4">
-            <h2 className="text-xl font-semibold">Men's Wool Dasher Mizzles</h2>
-            <p className="text-gray-600">$145</p>
-            <button className="mt-4 w-full bg-black text-white py-2 rounded hover:bg-white hover:border-2 hover:border-black hover:text-black hover:font-bold">Add to Cart</button>
-          </div>
-        </div>
-        <div className="bg-white rounded-lg shadow-md overflow-hidden">
-          <img src="https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_800,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/colorway/en-US/images/257MrVODI72TTS6J4741dG/1" alt="Shoe" className="w-full h-48 object-cover" />
-          <div className="p-4">
-            <h2 className="text-xl font-semibold">Women's Wool Go - Fluff</h2>
-            <p className="text-gray-600">$120</p>
-            <button className="mt-4 w-full bg-black text-white py-2 rounded hover:bg-white hover:border-2 hover:border-black hover:text-black hover:font-bold">Add to Cart</button>
-          </div>
-        </div>
-        <div className="bg-white rounded-lg shadow-md overflow-hidden">
-          <img src="https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_800,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/colorway/en-US/images/1ZI23olvQ04LMkCB5rb378/1" alt="Shoe" className="w-full h-48 object-cover" />
-          <div className="p-4">
-            <h2 className="text-xl font-semibold">Women's Tree Breezers</h2>
-            <p className="text-gray-600">$100</p>
-            <button className="mt-4 w-full bg-black text-white py-2 rounded hover:bg-white hover:border-2 hover:border-black hover:text-black hover:font-bold">Add to Cart</button>
-          </div>
-        </div>
-        <div className="bg-white rounded-lg shadow-md overflow-hidden">
-          <img src="https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_800,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/colorway/en-US/images/42fXXwNDdszCPT4YPzOmt7/1" alt="Shoe" className="w-full h-48 object-cover" />
-          <div className="p-4">
-            <h2 className="text-xl font-semibold">Women's Tree Toppers</h2>
-            <p className="text-gray-600">$110</p>
-            <button className="mt-4 w-full bg-black text-white py-2 rounded hover:bg-white hover:border-2 hover:border-black hover:text-black hover:font-bold">Add to Cart</button>
-          </div>
-        </div>
-        <div className="bg-white rounded-lg shadow-md overflow-hidden">
-          <img src="https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_800,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/colorway/en-US/images/4XKcjdlEJnXT7fVktwiNB3/1" alt="Shoe" className="w-full h-48 object-cover" />
-          <div className="p-4">
-            <h2 className="text-xl font-semibold">Women's Wool Runner-up</h2>
-            <p className="text-gray-600">$145</p>
-            <button className="mt-4 w-full bg-black text-white py-2 rounded hover:bg-white hover:border-2 hover:border-black hover:text-black hover:font-bold">Add to Cart</button>
-          </div>
-        </div>
+        {products.map((product) => (
+          <Link
+            href={{
+              pathname: '/view-product',
+              query: {
+                imageUrl: product.imageUrl,
+                name: product.name,
+                price: product.price,
+              },
+            }}
+          >
+            <div key={product.id} className="bg-white rounded-lg shadow-md overflow-hidden">
+              <img src={product.imageUrl} alt={product.name} className="w-full h-48 object-cover" />
+              <div className="p-4">
+                <h2 className="text-xl font-semibold">{product.name}</h2>
+                <p className="text-gray-600">${product.price}</p>
+              </div>
+            </div>
+          </Link>
+        ))}
+
       </div>
     </div>
   );

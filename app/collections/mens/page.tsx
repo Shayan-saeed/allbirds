@@ -27,14 +27,6 @@ export default function page() {
   const [shoes, setShoes] = useState<Shoe[]>([]);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
 
-  // const shoesCollection = collection(db, 'collections', 'mens', 'shoes');
-  // const shoesSnapshot = await getDocs(shoesCollection);
-  // const shoesList = shoesSnapshot.docs.map(doc => ({
-  //       id: doc.id,
-  //       ...doc.data()
-  //     })) as Shoe[];
-  //     setShoes(shoesList);
-
   useEffect(() => {
     const fetchShoes = async () => {
       const shoesCollection = collection(db, 'collections', 'mens', 'shoes');
