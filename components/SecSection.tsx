@@ -1,6 +1,6 @@
 import React from 'react';
 import './SecSection.css';
-import Link from 'next/link'
+import Link from 'next/link';
 
 const SecSection = () => {
     return (
@@ -24,7 +24,9 @@ const SecSection = () => {
             </div>
             <div className="section-item relative w-full md:w-1/3 mb-4 md:mb-0 md:mr-2 overflow-hidden shadow-[0_0_0_1px_rgba(0,0,0,0.05)] transition-transform duration-300 ease-in-out bg-[rgba(0,0,0,0.5)]">
                 <div className='secSecBackground'>
-                    <video src={`https://cdn.allbirds.com/video/upload/f_auto,q_auto/cms/6JzgSRWxQcOKC2NjmFgj7k/a8ea972dad08fcb00d8a58804ea1ac55/24Q3_MizzleRelaunch_WorldOfDry_WoolRunnerMizzle_Homepage_Tri-Panel_Module_Desktop_Mobile_1200x1500.mp4`} className="section-image" autoPlay loop muted></video>
+                    <video className="section-image" autoPlay loop muted>
+                        <source src='https://res.cloudinary.com/dir9vradu/video/upload/v1730298560/secSectionVideo_qbxuqs.mp4' type="video/mp4" />
+                    </video>
                 </div>
                 <div className='text-white' style={{ position: "absolute", top: 0, textAlign: "center", width: "100%" }}>
                     <h1 className='text-white text-2xl font-bold mt-16'>Wool Runner Mizzle</h1>

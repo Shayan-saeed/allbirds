@@ -20,7 +20,7 @@ const FifthSection = () => {
             </div>
             <div className="sectionItem group relative w-full md:w-1/2 overflow-hidden transition-transform duration-300 ease-in-out p-2">
                 <div className='fifthSecBackground'>
-                    <video src={`https://cdn.allbirds.com/video/upload/f_auto,q_auto/cms/hEOl9EtcpDTyWj7ocj1qH/7711c5863b082c94815372002ee84af7/Site_WoolCollection_DualPanel.mp4`} className="sectionImage w-full h-auto block" autoPlay loop muted></video>
+                    <video src='https://res.cloudinary.com/dir9vradu/video/upload/v1730298601/fifthSectionVideo_xpvvga.mp4' className="sectionImage w-full h-auto block" autoPlay loop muted></video>
                 </div>
                 <div className='text-white' style={{ position: "absolute", top: 0, textAlign: "center", width: "100%" }}>
                     <h1 className='text-white text-2xl font-bold mt-16'>The Wool Collection</h1>
