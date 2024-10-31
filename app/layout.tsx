@@ -41,9 +41,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
       </head>
-      <body>{loading ? (
-        <Loader />
-      ) : (
+      <body>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -52,14 +50,18 @@ export default function RootLayout({
         >
           <Provider store={store}>
             <Header />
-            {children}
+            {loading ? (
+              <Loader />
+            ) : (
+              children
+            )}
             <Footer />
             <ToastContainer />
           </Provider>
           <Toaster />
 
         </ThemeProvider>
-      )}
+
       </body>
     </html>
   );
