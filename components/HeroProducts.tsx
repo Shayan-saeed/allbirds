@@ -1,3 +1,4 @@
+'use client'
 import React, { useState, useEffect } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
 import {
@@ -16,6 +17,7 @@ interface Product {
   imageUrl: string;
   name: string;
   price: number;
+  collection: string;
 }
 
 
@@ -28,7 +30,7 @@ const HeroProducts = () => {
       const fetchCategoryProducts = async (category: string) => {
         const collectionRef = collection(db, 'collections', category, 'shoes');
         const snapshot = await getDocs(collectionRef);
-        const productList = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })) as Product[];
+        const productList = snapshot.docs.map(doc => ({ id: doc.id, collection: category , ...doc.data() })) as Product[];
         return productList.sort(() => Math.random() - 0.5).slice(0, 4);
       };
 
@@ -47,24 +49,18 @@ const HeroProducts = () => {
       </div>
       <Carousel
         opts={{
-          align: "start",
+          align: "center",
         }}
-        className="w-full overflow-hidden p-7"
+        className="w-full overflow-hidden p-7"  
+        style={{paddingInline: "10%"}}
       >
         <CarouselContent>
           {products.map(product => (
-            <CarouselItem className='basis-full md:basis-1/4' key={product.id}>
+            <CarouselItem className='flex-none w-full md:w-1/3 lg:w-1/4' key={product.id}>
               <Link
-                href={{
-                  pathname: '/view-product',
-                  query: {
-                    imageUrl: product.imageUrl,
-                    name: product.name,
-                    price: product.price,
-                  },
-                }}
+                href={`/view-product/${product.collection}/${product.id}`}
               >
-                <div className="p-1" style={{ width: "300px", height: "400px" }}>
+                <div className="p-1 mx-auto" style={{ maxWidth: "300px", height: "400px" }}>
                   <img src={product.imageUrl} alt={product.name} width={300} height={200} className='bg-gray-100' />
                   <h2 className='font-bold pt-2'>{product.name}</h2>
                   <p>${product.price}</p>

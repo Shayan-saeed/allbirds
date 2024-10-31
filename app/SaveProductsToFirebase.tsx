@@ -133,7 +133,7 @@ const SaveProductsToFirestore = async () => {
     const mensShoesCollection = collection(db, "collections", "mens", "shoes");
     products.mens.forEach(async (product) => {
         try {
-            await setDoc(doc(mensShoesCollection, product.name), {
+            await setDoc(doc(mensShoesCollection), {
                 name: product.name,
                 price: product.price,
                 imageUrl: product.imageUrl
@@ -148,7 +148,7 @@ const SaveProductsToFirestore = async () => {
     const womensShoesCollection = collection(db, "collections", "womens", "shoes");
     products.womens.forEach(async (product) => {
         try {
-            await setDoc(doc(womensShoesCollection, product.name), {
+            await setDoc(doc(womensShoesCollection), {
                 name: product.name,
                 price: product.price,
                 imageUrl: product.imageUrl

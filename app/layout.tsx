@@ -11,6 +11,7 @@ import { store } from './store/store';
 import { Toaster } from "@/components/ui/sonner"
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+// import SaveProductsToFirebase from './SaveProductsToFirebase'
 
 
 export default function RootLayout({
@@ -21,6 +22,10 @@ export default function RootLayout({
 
   const pathname = usePathname();
   const [loading, setLoading] = useState(true);
+
+  // useEffect(()=>{
+  //   SaveProductsToFirebase()
+  // },[])
 
   useEffect(() => {
     setLoading(true);

@@ -49,7 +49,7 @@ export default function Cart({ open, onOpenChange }: CartState) {
                                                 <h3 className="font-bold">{item.name}</h3>
                                                 <p>Price: ${item.price.toFixed(2)}</p>
                                                 <div className="flex items-center">
-                                                    <button onClick={() => handleQuantityChange(item.id, item.quantity - 1)} className="px-2 py-1 border rounded">-</button>
+                                                    {item.quantity === 1 ? null : <button onClick={() => handleQuantityChange(item.id, item.quantity - 1)} className="px-2 py-1 border rounded">-</button>}
                                                     <p className="mx-2">{item.quantity}</p>
                                                     <button onClick={() => handleQuantityChange(item.id, item.quantity + 1)} className="px-2 py-1 border rounded">+</button>
                                                 </div>
