@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../store/store';
 import { collection, doc, setDoc } from "firebase/firestore";
@@ -7,6 +7,7 @@ import db from '../firebaseConfig';
 import { clearCart } from '../store/cartSlice';
 import { useRouter } from 'next/navigation';
 import { toast } from 'react-toastify';
+import { getAuth } from 'firebase/auth';
 
 export default function CheckoutPage() {
     const cartItems = useSelector((state: RootState) => state.cart.items);
@@ -17,6 +18,15 @@ export default function CheckoutPage() {
     const [phoneNumber, setPhoneNumber] = useState('');
     const dispatch = useDispatch();
     const router = useRouter();
+
+    useEffect(() => {
+        const auth = getAuth();
+        const user = auth.currentUser;
+        if (user) {
+            setName(user.displayName || '');
+            setEmail(user.email || '');   
+        }
+    }, []);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -31,19 +41,24 @@ export default function CheckoutPage() {
                 draggable: true,
                 progress: undefined,
                 theme: "light",
-                });
+            });
             return;
         }
 
         const orderId = doc(collection(db, "orders")).id;
+
+        const auth = getAuth();
+        const user = auth.currentUser;
+
         const orderData = {
             name,
             email,
             address,
             phoneNumber,
             subtotal,
-            products: cartItems.reduce((acc: Record<string, { quantity: number, size: string | null}>, item) => {
-                const key = `${item.name}- size${item.size}`;
+            trackingId: Math.floor(1000000000 + Math.random() * 9000000000).toString(),
+            products: cartItems.reduce((acc: Record<string, { quantity: number, size: string | null }>, item) => {
+                const key = `${item.name} - ${item.size}`;
                 acc[key] = {
                     quantity: item.quantity,
                     size: item.size
@@ -53,7 +68,15 @@ export default function CheckoutPage() {
         };
 
 
-        await setDoc(doc(db, "orders", orderId), orderData);
+        if (user) {
+
+            await setDoc(doc(db, "orders", user.uid, "userOrders", orderId), orderData);
+
+        } else {
+
+            await setDoc(doc(db, "orders", orderId), orderData);
+            
+        }
 
         dispatch(clearCart());
 
@@ -66,7 +89,9 @@ export default function CheckoutPage() {
             draggable: true,
             progress: undefined,
             theme: "light",
-            });
+        });
+
+        router.push(`/order-details/${orderId}`);
     };
 
     return (
