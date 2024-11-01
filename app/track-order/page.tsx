@@ -63,7 +63,7 @@ const TrackOrderPage = () => {
                     value={trackingId}
                     onChange={(e) => setTrackingId(e.target.value)}
                     placeholder="Tracking ID"
-                    className="border border-gray-300 p-2 w-full max-w-xs outline-none"
+                    className="border border-gray-300 bg-white text-black p-2 w-full max-w-xs outline-none"
                 />
                 <button
                     onClick={fetchOrder}
