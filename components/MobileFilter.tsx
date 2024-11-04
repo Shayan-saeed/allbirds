@@ -4,13 +4,60 @@ import { Sheet, SheetContent } from "@/components/ui/sheet";
 import { Separator } from "@/components/ui/separator"
 import { Checkbox } from "@/components/ui/checkbox"
 
-const MobileFilter = () => {
+interface SidebarProps {
+    gender: string;
+    selectedSizes: number[];
+    setSelectedSizes: (sizes: number[] | ((prev: number[]) => number[])) => void;
+    selectedBestFor: string[];
+    setSelectedBestFor: (bestFor: string[] | ((prev: string[]) => string[])) => void;
+    selectedMaterials: string[];
+    setSelectedMaterials: (materials: string[] | ((prev: string[]) => string[])) => void;
+    selectedHue: string[];
+    setSelectedHue: (hues: string[] | ((prev: string[]) => string[])) => void;
+}
+
+const MobileFilter = ({
+    gender,
+    selectedSizes,
+    setSelectedSizes,
+    selectedBestFor,
+    setSelectedBestFor,
+    selectedMaterials,
+    setSelectedMaterials,
+    selectedHue,
+    setSelectedHue,
+}: SidebarProps) => {
 
     const [isFilterOpen, setIsFilterOpen] = useState(false);
 
     const handleFiltersClick = () => {
         setIsFilterOpen(!isFilterOpen)
     }
+
+    const handleSizeChange = (size: number) => {
+        setSelectedSizes(prev =>
+            prev.includes(size) ? prev.filter(s => s !== size) : [...prev, size]
+        );
+    };
+
+    const handleBestForChange = (bestFor: string) => {
+        setSelectedBestFor(prev =>
+            prev.includes(bestFor) ? prev.filter(b => b !== bestFor) : [...prev, bestFor]
+        );
+    };
+
+    const handleMaterialChange = (material: string) => {
+        setSelectedMaterials(prev =>
+            prev.includes(material) ? prev.filter(m => m !== material) : [...prev, material]
+        );
+    };
+
+    const handleHueChange = (hue: string) => {
+        setSelectedHue(prev =>
+            prev.includes(hue) ? prev.filter(h => h !== hue) : [...prev, hue]
+        );
+    };
+
     return (
         <div className='border p-2 border-gray-300 rounded-full overflow-hidden lg:hidden'>
             <button onClick={handleFiltersClick} className='flex font-bold gap-2'>
@@ -32,7 +79,12 @@ const MobileFilter = () => {
                                 <p className='text-xs pb-2'>Most of our shoes only come in full sizes. If you’re a half size, select your nearest whole size too.</p>
                                 <div className='flex flex-wrap gap-2 font-sans pb-3'>
                                     {['8', '8.5', '9', '9.5', '10', '10.5', '11', '11.5', '12', '12.5', '13', '13.5', '14'].map(size => (
-                                        <div key={size} className='flex items-center justify-center border border-gray-300 rounded-md text-center cursor-pointer hover:bg-gray-200' style={{ width: '40px', height: '40px' }}>
+                                        <div
+                                            key={size}
+                                            className={`flex items-center justify-center border border-gray-300 rounded-md text-center cursor-pointer hover:bg-gray-200 ${selectedSizes.includes(Number(size)) ? 'bg-gray-200' : ''}`}
+                                            onClick={() => handleSizeChange(Number(size))}
+                                            style={{ width: '40px', height: '40px' }}
+                                        >
                                             {size}
                                         </div>
                                     ))}
@@ -41,115 +93,56 @@ const MobileFilter = () => {
                             <Separator />
                             <div className='space-y-3 pb-4'>
                                 <h2 className='text-md font-bold pt-2'>BEST FOR</h2>
-                                <div className="grid grid-cols-2 gap-4">
-                                    <div className="flex items-center space-x-2">
-                                        <Checkbox id="everyday" />
+                                {["Everyday", "Cool Weather", "Wet Weather", "Active", "Warm Weather"].map(bestFor => (
+                                    <div key={bestFor} className="flex items-center space-x-2">
+                                        <Checkbox id={bestFor} checked={selectedBestFor.includes(bestFor)} onCheckedChange={() => handleBestForChange(bestFor)} />
                                         <label
-                                            htmlFor="everyday"
+                                            htmlFor={bestFor}
                                             className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                                         >
-                                            Everyday
+                                            {bestFor}
                                         </label>
                                     </div>
-                                    <div className="flex items-center space-x-2">
-                                        <Checkbox id="cool-weather" />
-                                        <label
-                                            htmlFor="cool-weather"
-                                            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                                        >
-                                            Cool Weather
-                                        </label>
-                                    </div>
-                                    <div className="flex items-center space-x-2">
-                                        <Checkbox id="wet-weather" />
-                                        <label
-                                            htmlFor="wet-weather"
-                                            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                                        >
-                                            Wet Weather
-                                        </label>
-                                    </div>
-                                    <div className="flex items-center space-x-2">
-                                        <Checkbox id="active" />
-                                        <label
-                                            htmlFor="active"
-                                            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                                        >
-                                            Active
-                                        </label>
-                                    </div>
-                                    <div className="flex items-center space-x-2">
-                                        <Checkbox id="warm-weather" />
-                                        <label
-                                            htmlFor="warm-weather"
-                                            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                                        >
-                                            Warm Weather
-                                        </label>
-                                    </div>
-                                </div>
+                                ))}
                             </div>
                             <Separator />
                             <div className='space-y-3 pt-2 pb-4'>
                                 <h2 className='text-md font-bold'>MATERIAL</h2>
-                                <div className="flex items-center space-x-2">
-                                    <Checkbox id="wool" />
-                                    <label
-                                        htmlFor="wool"
-                                        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                                    >
-                                        Soft & Cozy Wool
-                                    </label>
-                                </div>
-                                <div className="flex items-center space-x-2">
-                                    <Checkbox id="tree" />
-                                    <label
-                                        htmlFor="tree"
-                                        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                                    >
-                                        Light & Breezy Tree
-                                    </label>
-                                </div>
-                                <div className="flex items-center space-x-2">
-                                    <Checkbox id="canvas" />
-                                    <label
-                                        htmlFor="canvas"
-                                        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                                    >
-                                        Lightweight & Durable Canvas
-                                    </label>
-                                </div>
-                                <div className="flex items-center space-x-2">
-                                    <Checkbox id="cotton-blend" />
-                                    <label
-                                        htmlFor="cotton-blend"
-                                        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                                    >
-                                        Cozy & Durable Cotton Blend
-                                    </label>
-                                </div>
+                                {["Soft & Cozy Wool", "Light & Breezy Tree", "Lightweight & Durable Canvas", "Cozy & Durable Cotton Blend"].map(material => (
+                                    <div key={material} className="flex items-center space-x-2">
+                                        <Checkbox id={material} checked={selectedMaterials.includes(material)} onCheckedChange={() => handleMaterialChange(material)} />
+                                        <label
+                                            htmlFor={material}
+                                            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                                        >
+                                            {material}
+                                        </label>
+                                    </div>
+                                ))}
                             </div>
                             <Separator />
                             <div className='space-y-3 pt-2'>
                                 <h2 className='text-md font-bold'>HUE</h2>
-                                <ul className='grid grid-cols-3 gap-y-2'>
-                                    <li className='flex items-center gap-2'><span className="inline-block w-5 h-5 bg-black rounded-full"></span> Black</li>
-                                    <li className='flex items-center gap-2'><span className="inline-block w-5 h-5 bg-gray-500 rounded-full"></span> Grey</li>
-                                    <li className='flex items-center gap-2'><span className="inline-block w-5 h-5 bg-[#F5F5DC] rounded-full"></span> Beige</li>
-                                    <li className='flex items-center gap-2'><span className="inline-block w-5 h-5 bg-blue-500 rounded-full"></span> Blue</li>
-                                    <li className='flex items-center gap-2'><span className="inline-block w-5 h-5 bg-red-500 rounded-full"></span> Red</li>
-                                    <li className='flex items-center gap-2'><span className="inline-block w-5 h-5 bg-green-500 rounded-full"></span> Green</li>
-                                    <li className='flex items-center gap-2'><span className="inline-block w-5 h-5 bg-white rounded-full border border-grey-200"></span> White</li>
-                                    <li className='flex items-center gap-2'><span className="inline-block w-5 h-5 bg-purple-500 rounded-full"></span> Purple</li>
-                                    <li className='flex items-center gap-2'><span className="inline-block w-5 h-5 bg-yellow-500 rounded-full"></span> Yellow</li>
-                                    <li className='flex items-center gap-2'><span className="inline-block w-5 h-5 bg-[#964B00] rounded-full"></span> Brown</li>
-                                </ul>
+                                {["Black", "Grey", "Beige", "Blue", "Red", "Green", "White", "Purple", "Yellow", "Brown"].map(hue => (
+                                    <div
+                                        key={hue}
+                                        className="flex items-center space-x-2 cursor-pointer"
+                                        onClick={() => handleHueChange(hue)}
+                                    >
+                                        <span
+                                            className={`inline-block w-5 h-5 rounded-full ${hue.toLowerCase()} ${selectedHue.includes(hue) ? 'border-2 border-black' : ''}`}
+                                            style={{ backgroundColor: hue === "White" ? "#FFFFFF" : hue }}
+                                        ></span>
+                                        <span className="text-sm font-medium leading-none">{hue}</span>
+                                    </div>
+                                ))}
                             </div>
                         </SheetContent>
                     </Sheet>
                 </div>
-            )}
-        </div>
+            )
+            }
+        </div >
     )
 }
 

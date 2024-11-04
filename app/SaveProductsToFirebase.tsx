@@ -7,136 +7,235 @@ const SaveProductsToFirestore = async () => {
             {
                 name: "Men's Wool Runner Go",
                 price: 77,
-                imageUrl: "https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_800,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/colorway/en-US/images/1yFevTPVx6rBNnNsD6nWUz/1"
+                imageUrl: "https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_800,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/colorway/en-US/images/1yFevTPVx6rBNnNsD6nWUz/1",
+                sizes: [8, 9, 10.5, 12],
+                bestFor: "Cool Weather",
+                material: "Soft & Cozy Wool",
+                hue: "Black"
             },
             {
                 name: "Men's Wool Runner",
                 price: 67,
-                imageUrl: "https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_800,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/colorway/en-US/images/4orFDd5g3zeVaA6Gzt5YEB/2"
+                imageUrl: "https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_800,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/colorway/en-US/images/4orFDd5g3zeVaA6gzt5YEB/2",
+                sizes: [9, 10, 11, 13],
+                bestFor: "Everyday",
+                material: "Light & Breezy Tree",
+                hue: "Grey"
             },
             {
                 name: "Men's Wool Runner Mizzels",
                 price: 97,
-                imageUrl: "https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_800,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/colorway/en-US/images/1MnqSzTfrSBOEXwKcw6fME/1"
+                imageUrl: "https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_800,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/colorway/en-US/images/1MnqSzTfrSBOEXwKcw6fME/1",
+                sizes: [8.5, 9.5, 10, 12.5],
+                bestFor: "Wet Weather",
+                material: "Lightweight & Durable Canvas",
+                hue: "Grey"
             },
             {
                 name: "Men's Wool Dasher Mizzels",
                 price: 101,
-                imageUrl: "https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_800,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/colorway/en-US/images/31hAgckpYX3elISwqPhI7C/1"
+                imageUrl: "https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_800,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/colorway/en-US/images/31hAgckpYX3elISwqPhI7C/1",
+                sizes: [8, 10.5, 11, 12, 13.5],
+                bestFor: "Active",
+                material: "Cozy & Durable Cotton Blend",
+                hue: "Brown"
             },
             {
                 name: "Men's Tree Runner Go",
                 price: 84,
-                imageUrl: "https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_800,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/colorway/en-US/images/4y50FVO6KXe2h7HtQl2uOK/2"
+                imageUrl: "https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_800,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/colorway/en-US/images/4y50FVO6KXe2h7HtQl2uOK/2",
+                sizes: [9, 10, 12, 14],
+                bestFor: "Warm Weather",
+                material: "Light & Breezy Tree",
+                hue: "Black"
             },
             {
                 name: "Men's Wool Runner-up Mizzels",
                 price: 101,
-                imageUrl: "https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_800,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/colorway/en-US/images/73TPGU1pUzQ9rkW1aCog3t/1"
+                imageUrl: "https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_800,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/colorway/en-US/images/73TPGU1pUzQ9rkW1aCog3t/1",
+                sizes: [8, 8.5, 11.5, 13],
+                bestFor: "Cool Weather",
+                material: "Soft & Cozy Wool",
+                hue: "Blue"
             },
             {
                 name: "Men's Tree Flyer 2",
                 price: 80,
-                imageUrl: "https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_800,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/colorway/en-US/images/3UefDm6GLKu8YUlvgS1nnN/2"
+                imageUrl: "https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_800,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/colorway/en-US/images/3UefDm6GLKu8YUlvgS1nnN/2",
+                sizes: [9.5, 11, 12, 13.5],
+                bestFor: "Everyday",
+                material: "Lightweight & Durable Canvas",
+                hue: "White"
             },
             {
                 name: "Men's Tree Gliders",
                 price: 94,
-                imageUrl: "https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_800,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/colorway/en-US/images/2C2UkN4VRMbkleOkPAcacz/1"
+                imageUrl: "https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_800,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/colorway/en-US/images/2C2UkN4VRMbkleOkPAcacz/1",
+                sizes: [8, 10.5, 12.5, 14],
+                bestFor: "Active",
+                material: "Cozy & Durable Cotton Blend",
+                hue: "Beige"
             },
             {
                 name: "Men's Wool Loungers",
                 price: 73,
-                imageUrl: "https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_800,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/colorway/en-US/images/1pKmUxVCVVJU1bCppFt5lY/1"
+                imageUrl: "https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_800,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/colorway/en-US/images/1pKmUxVCVVJU1bCppFt5lY/1",
+                sizes: [8.5, 9.5, 11, 12.5],
+                bestFor: "Warm Weather",
+                material: "Soft & Cozy Wool",
+                hue: "Beige"
             },
             {
                 name: "Men's Tree Skippers",
                 price: 69.99,
-                imageUrl: "https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_800,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/colorway/en-US/images/18vIivEjpigzuIMEBThtlV/2"
+                imageUrl: "https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_800,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/colorway/en-US/images/18vIivEjpigzuIMEBThtlV/2",
+                sizes: [9, 10, 11.5, 13],
+                bestFor: "Cool Weather",
+                material: "Light & Breezy Tree",
+                hue: "Blue"
             },
             {
                 name: "Men's Tree Runners",
                 price: 98,
-                imageUrl: "https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_800,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/colorway/en-US/images/3rhKORN3J95IP1bnAygejK/1"
+                imageUrl: "https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_800,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/colorway/en-US/images/3rhKORN3J95IP1bnAygejK/1",
+                sizes: [8, 9.5, 10.5, 12.5],
+                bestFor: "Wet Weather",
+                material: "Lightweight & Durable Canvas",
+                hue: "Grey"
             },
             {
                 name: "Men's Tree Dasher 2",
                 price: 135,
-                imageUrl: "https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_800,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/colorway/en-US/images/5orWCriOBkoyZRcM5jvWJh/1"
+                imageUrl: "https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_800,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/colorway/en-US/images/5orWCriOBkoyZRcM5jvWJh/1",
+                sizes: [8, 10, 11.5, 13.5],
+                bestFor: "Everyday",
+                material: "Cozy & Durable Cotton Blend",
+                hue: "Beige"
             }
         ],
         womens: [
             {
                 name: "Women's Wool Runner Go",
                 price: 77,
-                imageUrl: "https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_800,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/colorway/en-US/images/7Lvy6fl9eGeEN6iTKl2Utf/1"
+                imageUrl: "https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_800,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/colorway/en-US/images/7Lvy6fl9eGeEN6iTKl2Utf/1",
+                sizes: [8, 9.5, 11, 14],
+                bestFor: "Cool Weather",
+                material: "Soft & Cozy Wool",
+                hue: "Brown"
             },
             {
                 name: "Women's Wool Runners",
                 price: 68,
-                imageUrl: "https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_800,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/colorway/en-US/images/4orFDd5g3zeVaA6Gzt5YEB/2"
+                imageUrl: "https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_800,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/colorway/en-US/images/4orFDd5g3zeVaA6Gzt5YEB/2",
+                sizes: [8.5, 10, 10.5, 11],
+                bestFor: "Everyday",
+                material: "Light & Breezy Tree",
+                hue: "Grey"
             },
             {
                 name: "Women's Wool Runner Mizzels",
                 price: 97,
-                imageUrl: "https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_800,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/colorway/en-US/images/1MnqSzTfrSBOEXwKcw6fME/1"
+                imageUrl: "https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_800,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/colorway/en-US/images/1MnqSzTfrSBOEXwKcw6fME/1",
+                sizes: [8, 9.5, 11, 12],
+                bestFor: "Wet Weather",
+                material: "Lightweight & Durable Canvas",
+                hue: "Blue"
             },
             {
                 name: "Women's Wool Dasher Mizzels",
                 price: 101,
-                imageUrl: "https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_800,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/colorway/en-US/images/1MnqSzTfrSBOEXwKcw6fME/1"
+                imageUrl: "https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_800,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/colorway/en-US/images/1MnqSzTfrSBOEXwKcw6fME/1",
+                sizes: [9, 10.5, 12, 12.5],
+                bestFor: "Active",
+                material: "Cozy & Durable Cotton Blend",
+                hue: "Blue"
             },
             {
                 name: "Women's Tree Runner Go",
                 price: 84,
-                imageUrl: "https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_800,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/colorway/en-US/images/31hAgckpYX3elISwqPhI7C/1"
+                imageUrl: "https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_800,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/colorway/en-US/images/31hAgckpYX3elISwqPhI7C/1",
+                sizes: [9, 11, 12, 13],
+                bestFor: "Warm Weather",
+                material: "Light & Breezy Tree",
+                hue: "Brown"
             },
             {
                 name: "Women's Wool Runner-up Mizzels",
                 price: 101,
-                imageUrl: "https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_800,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/colorway/en-US/images/1vQDHzOoMjC0EQm6a1HYry/1"
+                imageUrl: "https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_800,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/colorway/en-US/images/1vQDHzOoMjC0EQm6a1HYry/1",
+                sizes: [8, 9.5, 10.5, 11],
+                bestFor: "Cool Weather",
+                material: "Soft & Cozy Wool",
+                hue: "White"
             },
             {
                 name: "Women's Tree Flyer 2",
                 price: 80,
-                imageUrl: "https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_800,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/colorway/en-US/images/73TPGU1pUzQ9rkW1aCog3t/1"
+                imageUrl: "https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_800,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/colorway/en-US/images/73TPGU1pUzQ9rkW1aCog3t/1",
+                sizes: [8, 9, 10, 11],
+                bestFor: "Everyday",
+                material: "Lightweight & Durable Canvas",
+                hue: "Blue"
             },
             {
                 name: "Women's Tree Gliders",
                 price: 94,
-                imageUrl: "https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_800,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/colorway/en-US/images/2C2UkN4VRMbkleOkPAcacz/1"
+                imageUrl: "https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_800,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/colorway/en-US/images/2C2UkN4VRMbkleOkPAcacz/1",
+                sizes: [8.5, 9, 10.5, 11],
+                bestFor: "Active",
+                material: "Cozy & Durable Cotton Blend",
+                hue: "Beige"
             },
             {
                 name: "Women's Wool Loungers",
                 price: 73,
-                imageUrl: "https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_800,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/colorway/en-US/images/6BOf7hpfsaus0EMxBiKlZd/1"
+                imageUrl: "https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_800,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/colorway/en-US/images/6BOf7hpfsaus0EMxBiKlZd/1",
+                sizes: [8, 10, 13.5, 14],
+                bestFor: "Warm Weather",
+                material: "Soft & Cozy Wool",
+                hue: "Black"
             },
             {
                 name: "Women's Tree Skippers",
                 price: 69.99,
-                imageUrl: "https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_800,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/colorway/en-US/images/1pKmUxVCVVJU1bCppFt5lY/1"
+                imageUrl: "https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_800,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/colorway/en-US/images/1pKmUxVCVVJU1bCppFt5lY/1",
+                sizes: [9, 11, 12, 13],
+                bestFor: "Cool Weather",
+                material: "Light & Breezy Tree",
+                hue: "Beige"
             },
             {
                 name: "Women's Tree Runners",
                 price: 98,
-                imageUrl: "https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_800,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/colorway/en-US/images/18vIivEjpigzuIMEBThtlV/2"
+                imageUrl: "https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_800,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/colorway/en-US/images/18vIivEjpigzuIMEBThtlV/2",
+                sizes: [8.5, 9.5, 10.5, 11.5],
+                bestFor: "Wet Weather",
+                material: "Lightweight & Durable Canvas",
+                hue: "Blue"
             },
             {
                 name: "Women's Tree Dasher 2",
                 price: 135,
-                imageUrl: "https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_800,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/colorway/en-US/images/3rhKORN3J95IP1bnAygejK/1"
+                imageUrl: "https://cdn.allbirds.com/image/fetch/q_auto,f_auto/w_800,f_auto,q_auto/https://cdn.allbirds.com/image/upload/f_auto,q_auto/v1/production/colorway/en-US/images/3rhKORN3J95IP1bnAygejK/1",
+                sizes: [8, 9.5, 11, 12],
+                bestFor: "Everyday",
+                material: "Cozy & Durable Cotton Blend",
+                hue: "Grey"
             }
         ]
     };
 
-    // Save men's shoes
     const mensShoesCollection = collection(db, "collections", "mens", "shoes");
     products.mens.forEach(async (product) => {
         try {
             await setDoc(doc(mensShoesCollection), {
                 name: product.name,
                 price: product.price,
-                imageUrl: product.imageUrl
+                imageUrl: product.imageUrl,
+                sizes: product.sizes,
+                bestFor: product.bestFor,
+                material: product.material,
+                hue: product.hue
             });
             console.log("Men's shoe added: ", product.name);
         } catch (e) {
@@ -144,14 +243,17 @@ const SaveProductsToFirestore = async () => {
         }
     });
 
-    // Save women's shoes
     const womensShoesCollection = collection(db, "collections", "womens", "shoes");
     products.womens.forEach(async (product) => {
         try {
             await setDoc(doc(womensShoesCollection), {
                 name: product.name,
                 price: product.price,
-                imageUrl: product.imageUrl
+                imageUrl: product.imageUrl,
+                sizes: product.sizes,
+                bestFor: product.bestFor,
+                material: product.material,
+                hue: product.hue
             });
             console.log("Women's shoe added: ", product.name);
         } catch (e) {
