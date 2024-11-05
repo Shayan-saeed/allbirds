@@ -4,8 +4,7 @@ import { Sheet, SheetContent } from "@/components/ui/sheet";
 import { Separator } from "@/components/ui/separator"
 import { Checkbox } from "@/components/ui/checkbox"
 
-interface SidebarProps {
-    gender: string;
+interface MobileFilterProps {
     selectedSizes: number[];
     setSelectedSizes: (sizes: number[] | ((prev: number[]) => number[])) => void;
     selectedBestFor: string[];
@@ -17,7 +16,6 @@ interface SidebarProps {
 }
 
 const MobileFilter = ({
-    gender,
     selectedSizes,
     setSelectedSizes,
     selectedBestFor,
@@ -26,7 +24,7 @@ const MobileFilter = ({
     setSelectedMaterials,
     selectedHue,
     setSelectedHue,
-}: SidebarProps) => {
+}: MobileFilterProps) => {
 
     const [isFilterOpen, setIsFilterOpen] = useState(false);
 
