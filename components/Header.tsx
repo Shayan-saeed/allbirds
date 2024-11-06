@@ -200,7 +200,7 @@ const Header = () => {
                         <div className="space-y-1 px-2 pb-3 pt-2">
                             <Link href="/collections/mens" className="block rounded-md px-3 py-2 text-base font-medium hover:bg-gray-700 hover:text-white" aria-current="page">Men</Link>
                             <Link href="/collections/womens" className="block rounded-md px-3 py-2 text-base font-medium hover:bg-gray-700 hover:text-white">Women</Link>
-                            <Link href="/socks" className="block rounded-md px-3 py-2 text-base font-medium hover:bg-gray-700 hover:text-white">Socks</Link>
+                            <Link href="/collections/socks" className="block rounded-md px-3 py-2 text-base font-medium hover:bg-gray-700 hover:text-white">Socks</Link>
                             <Link href="/" className="block rounded-md px-3 py-2 text-base font-medium hover:bg-gray-700 hover:text-white">Sale</Link>
                             <Link href="/search" className="block rounded-md px-3 py-2 text-base font-medium hover:bg-gray-700 hover:text-white">Search</Link>
                             <Link href="/account" className="block rounded-md px-3 py-2 text-base font-medium hover:bg-gray-700 hover:text-white">Profile</Link>
