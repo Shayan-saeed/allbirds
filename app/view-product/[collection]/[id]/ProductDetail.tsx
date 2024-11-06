@@ -19,6 +19,7 @@ interface ProductProps {
     imageUrl: string;
     name: string;
     price: number;
+    sizes: number[];
 }
 
 export default function ProductDetails({ product }: { product: ProductProps }) {
@@ -60,14 +61,14 @@ export default function ProductDetails({ product }: { product: ProductProps }) {
                     )}
                 </div>
                 <p className="text-lg lg:text-xl font-sans mb-4">★★★★☆ <span className='text-sm'>(374)</span></p>
-                <h2 className="text-md lg:text-lg font-semibold mt-4 mb-2">Select Size:</h2>
+                <h2 className="text-md lg:text-lg font-semibold mt-4 mb-2">Available Sizes:</h2>
                 <div className='flex flex-wrap gap-3 font-sans mb-4'>
-                    {['8', '8.5', '9', '9.5', '10', '10.5', '11', '11.5', '12', '12.5', '13', '13.5', '14'].map(size => (
+                    {product.sizes.map(size => (
                         <div
                             key={size}
-                            className={`flex items-center justify-center border border-gray-300 rounded-sm text-center cursor-pointer transition duration-200 ${selectedSize === size ? 'bg-black text-white' : 'hover:bg-gray-200'}`}
+                            className={`flex items-center justify-center border border-gray-300 rounded-sm text-center cursor-pointer transition duration-200  ${selectedSize === size.toString() ? 'bg-black text-white' : 'hover:bg-gray-200'}`}
                             style={{ width: '70px', height: '70px' }}
-                            onClick={() => setSelectedSize(size)}
+                            onClick={() => setSelectedSize(size.toString())}
                         >
                             {size}
                         </div>

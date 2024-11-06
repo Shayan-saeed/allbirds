@@ -45,7 +45,7 @@ export default function MensPage({ shoes }: MensPageProps) {
 
     return (
         <div className='mt-10'>
-            <div className='flex'>
+            <div className='flex'> 
                 <Sidebar
                     gender="Men"
                     selectedSizes={selectedSizes}

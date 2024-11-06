@@ -10,6 +10,7 @@ interface ProductProps {
     imageUrl: string;
     name: string;
     price: number;
+    sizes: number[];
 }
 
 export default async function ProductPage({ params }: { params: {collection: string; id: string } }) {
@@ -29,7 +30,6 @@ export default async function ProductPage({ params }: { params: {collection: str
     } as ProductProps;
 
     return (
-
         <div>
             <ProductDetails product={product} />
             <div className="flex flex-col md:flex-row w-full mt-12 p-6">

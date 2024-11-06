@@ -43,7 +43,7 @@ const HeroProducts = () => {
     fetchProducts();
   }, []);
   return (
-    <div className="relative">
+    <div className="relative pt-10">
       <div className="pl-8">
         <h1 className='font-bold text-lg'>MORE TO SHOP</h1>
       </div>

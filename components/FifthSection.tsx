@@ -4,7 +4,7 @@ import Link from 'next/link'
 const FifthSection = () => {
     return (
         <div className="fifth-section flex flex-wrap pt-12 pb-12 w-full">
-            <div className="sectionItem group relative w-full md:w-1/2 overflow-hidden transition-transform duration-300 ease-in-out p-2">
+            <div className="sectionItem group relative w-full md:w-1/2 overflow-hidden transition-transform duration-300 ease-in-out p-6 md:p-2">
                 <div className='fifthSecBackground'>
                     <img src={`https://cdn.allbirds.com/image/upload/f_auto,q_auto,w_1000/cms/6h3QXLL5Q7BSJalZ58YJ2c/37200a9dd056e864b378c8355cebfab2/24Q3_Tree_Breezer_Knit_Homepage_Dual-Panel_Module-1_Desktop_Mobile_2000x2000.png`} alt='section-image' className="sectionImage w-full h-auto block" />
                 </div>
@@ -18,7 +18,7 @@ const FifthSection = () => {
                     </Link>
                 </div>
             </div>
-            <div className="sectionItem group relative w-full md:w-1/2 overflow-hidden transition-transform duration-300 ease-in-out p-2">
+            <div className="sectionItem group relative w-full md:w-1/2 overflow-hidden transition-transform duration-300 ease-in-out p-6 md:p-2">
                 <div className='fifthSecBackground'>
                     <video src='https://res.cloudinary.com/dir9vradu/video/upload/v1730298601/fifthSectionVideo_xpvvga.mp4' className="sectionImage w-full h-auto block" autoPlay loop muted></video>
                 </div>
